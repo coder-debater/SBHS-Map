@@ -4,7 +4,13 @@
   "display": "standalone",
   "start_url": "/#home",
   "scope": "/",
-  "icons": [],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ],
   "background_color": "#dd8811",
   "theme_color": "#dd8811",
   "description": "Easily navigate and find your way around SBHS with SBHS Map.",
