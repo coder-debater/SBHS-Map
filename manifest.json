@@ -4,10 +4,22 @@
   "display": "standalone",
   "start_url": "/#home",
   "scope": "/",
-  "icons": [],
+  "icons": [
+    {
+      "src": "icons/favicon.svg",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ],
   "background_color": "#44bb33",
   "theme_color": "#44bb33",
-  "description": "SBHS Map is one place for navigation around SBHS.",
+  "description": "Easily navigate and find your way around SBHS with SBHS Map.",
+  "lang": "en",
+  "categories": [
+    "navigation",
+    "maps",
+    "utilities"
+  ],
   "shortcuts": [
     {
       "name": "Manage Settings",
