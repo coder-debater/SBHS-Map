@@ -6,7 +6,7 @@
   "scope": "/",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "purpose": "any"
     }
@@ -26,7 +26,13 @@
       "short_name": "Settings",
       "description": "Change app settings",
       "url": "/#settings",
-      "icons": []
+      "icons": [
+        {
+          "src": "settings.svg",
+          "sizes": "any",
+          "purpose": "any"
+        }
+      ]
     }
   ]
 }
