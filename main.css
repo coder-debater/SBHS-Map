@@ -5,3 +5,15 @@
 .u {
     text-decoration: underline;
 }
+
+[hide] {
+    display: none;
+}
+
+[invis] {
+    visibility: hidden;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

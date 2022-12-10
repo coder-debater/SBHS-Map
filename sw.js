@@ -9,21 +9,17 @@ const FILES = [
     "/sw.js"
 ];
 
-function log(...args) {
+function log(str) {
     if (!localStorage.debug) {
         localStorage.debug = "off";
     }
     if (localStorage.debug === "on") {
-        console.log("[sw.js]", ...args)
-    }
-}
-
-function prettyLog(msg, ...args) {
-    if (!localStorage.debug) {
-        localStorage.debug = "off";
-    }
-    if (localStorage.debug === "on") {
-        console.log("[sw.js] "+msg, ...args)
+        if (!localStorage.logs) {
+            localStorage.logs = "[]";
+        }
+        let list = JSON.parse(localStorage.logs);
+        list.push(str)
+        localStorage.logs = JSON.stringify(list);
     }
 }
 
