@@ -4,13 +4,11 @@
   "display": "standalone",
   "start_url": "/#home",
   "scope": "/",
-  "icons": [
-    {
-      "src": "favicon.svg",
-      "sizes": "any",
-      "purpose": "any"
-    }
-  ],
+  "icons": [{
+    "src": "favicon.svg",
+    "sizes": "any",
+    "purpose": "any"
+  }],
   "background_color": "#dd8811",
   "theme_color": "#dd8811",
   "description": "Easily navigate and find your way around SBHS with SBHS Map.",
@@ -20,18 +18,16 @@
     "maps",
     "utilities"
   ],
-  "shortcuts": [
-    {
-      "name": "Manage Settings",
-      "short_name": "Settings",
-      "description": "Change app settings",
-      "url": "/#settings",
-      "icons": [
-        {
-          "src": "settings.svg",
-          "sizes": "any"
-        }
-      ]
-    }
-  ]
+  "shortcuts": [{
+    "name": "Manage Settings",
+    "short_name": "Settings",
+    "description": "Change app settings",
+    "url": "/#settings",
+    "icons": [
+      {
+        "src": "settings.svg",
+        "sizes": "any"
+      }
+    ]
+  }]
 }
