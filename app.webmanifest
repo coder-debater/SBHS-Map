@@ -29,8 +29,7 @@
       "icons": [
         {
           "src": "settings.svg",
-          "sizes": "any",
-          "purpose": "any"
+          "sizes": "any"
         }
       ]
     }
