@@ -21,11 +21,12 @@ const FILES = [
   "/sw.js"
 ];
 let _log;
-function log(...args) {
-  _log('[SW]', args)
-}
 function prettyLog(first, ...args) {
   args.unshift('[SW] ' + first);
+  _log(args)
+}
+function log(...args) {
+  args.unshift('[SW]')
   _log(args)
 }
 const LOG_CHANNEL = self.BroadcastChannel
@@ -47,7 +48,6 @@ if (LOG_CHANNEL) {
     }
     queue = null;
   };
-  LOG_CHANNEL.postMessage('sw-ready')
   _log = function(args) {
     if (debugModeVal === "on") {
       LOG_CHANNEL.postMessage(args);
@@ -59,6 +59,7 @@ if (LOG_CHANNEL) {
       queue.push(args);
     }
   };
+  LOG_CHANNEL.postMessage('sw-ready')
 }
 else {
   _log = function() {}
