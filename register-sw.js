@@ -1,17 +1,18 @@
 document.getElementById('sw-btn').addEventListener(
 document.getElementById('sw-evt').value, function() {
-console.log("Clicked")
 if ("serviceWorker" in navigator) {
 // \\ // \\ // \\ // \\ // \\ // \\
 
 
 
 console.log("Adding SW")
-if (self.BroadcastChannel) {
-  console.log("Broadcast Channel Exists")
-  const LOG_CHANNEL = new BroadcastChannel('sw-logs');
+
+const LOG_CHANNEL = self.BroadcastChannel
+  ? (new BroadcastChannel('sw-logs'))
+  : null;
+if (LOG_CHANNEL) {
+  console.log("Using BroadcastChannel")
   LOG_CHANNEL.onmessage = function(evt) {
-    console.log("Recieved message", evt.data)
     if (evt.data.constructor === Array) {
       // Logging func
       console.log(...evt.data);
@@ -25,12 +26,16 @@ if (self.BroadcastChannel) {
     let debugAttr = document.getElementById('debug-attr');
     let debugMode = debugElm[debugAttr.value];
     let debugModeVal = debugMode?"on":"off";
-    console.log('Debug mode is', debugModeVal)
+    console.log('Sent to SW: Debug Mode is ', debugModeVal)
     LOG_CHANNEL.postMessage(debugModeVal)
   };
 }
+else {
+  console.log("Not using BroadcastChannel")
+}
 
 navigator.serviceWorker.register("sw.js");
+
 console.log("Added SW")
 
 
