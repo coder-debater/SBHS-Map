@@ -1,10 +1,22 @@
-const OFFLINE_CACHE = "offline-4";
+const OFFLINE_CACHE = "offline-5";
 const DATA_CACHE = "data";
 const FILES = [
-  "/index.html",
-  "/app.webmanifest",
-  "/icon.svg",
+  // HTML
+  "/debug.html",
+
+  // JS
+  "/debug.js",
+
+  // CSS
   "/main.css",
+  "/slider.css",
+
+  // Manifest + used icons
+  "/app.webmanifest",
+  "/favicon.svg",
+  "/settings.svg",
+
+  // Service Worker
   "/register-sw.js",
   "/sw.js"
 ];
