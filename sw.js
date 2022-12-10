@@ -1,4 +1,4 @@
-const OFFLINE_CACHE = "offline-2";
+const OFFLINE_CACHE = "offline-3";
 const DATA_CACHE = "data";
 const FILES = [
     "/index.html",
@@ -8,18 +8,18 @@ const FILES = [
     "/register-sw.js",
     "/sw.js"
 ];
+const LOG_CHANNEL = new BroadcastChannel('sw-logs')
 
-function log(str) {
-    if (!localStorage.debug) {
-        localStorage.debug = "off";
-    }
+function log(...args) {
     if (localStorage.debug === "on") {
-        if (!localStorage.logs) {
-            localStorage.logs = "[]";
-        }
-        let list = JSON.parse(localStorage.logs);
-        list.push(str)
-        localStorage.logs = JSON.stringify(list);
+        LOG_CHANNEL.postMessage(args)
+    }
+}
+
+function prettyLog(first, ...args) {
+    if (localStorage.debug === "on") {
+        args.unshift('[SW] ' + first)
+        LOG_CHANNEL.postMessage(args)
     }
 }
 
@@ -43,7 +43,6 @@ self.addEventListener("fetch", evt => {
         }
         catch (err) {
             log("Fetch failed, returning cache");
-
             const cache = await caches.open(CACHE_NAME);
             const cachedResponse = await cache.match(OFFLINE_URL);
             return cachedResponse;
