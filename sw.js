@@ -1,4 +1,4 @@
-const OFFLINE_CACHE = "offline-8";
+const OFFLINE_CACHE = "offline-v-1";
 const DATA_CACHE = "data";
 const FILES = [
   // HTML
