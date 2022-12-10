@@ -32,8 +32,8 @@ if (self.BroadcastChannel) {
   const LOG_CHANNEL = new BroadcastChannel('sw-logs');
   let debugModeVal = null;
   let queue = [];
-  LOG_CHANNEL.onmessage = function(_debugModeVal) {
-    debugModeVal = _debugModeVal;
+  LOG_CHANNEL.onmessage = function(evt) {
+    debugModeVal = evt.data;
     let i=-1;
     while (true) {
       i++;
@@ -61,6 +61,8 @@ if (self.BroadcastChannel) {
 else {
   _log = function() {};
 }
+
+log("Started");
 
 self.addEventListener("install", function(evt) {
   log("Registered");
