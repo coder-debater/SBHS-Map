@@ -1,4 +1,4 @@
-const OFFLINE_CACHE = "offline-v-2";
+const OFFLINE_CACHE = "offline-v-3";
 const DATA_CACHE = "data";
 const FILES = [
   // HTML
@@ -36,7 +36,7 @@ let debugModeVal = null;
 let queue = [];
 if (LOG_CHANNEL) {
   LOG_CHANNEL.onmessage = function(evt) {
-    if (!(["on", "off"].contains(evt.data))) {
+    if (!(["on", "off"].includes(evt.data))) {
       // Not debug mode value
       return undefined;
     }
