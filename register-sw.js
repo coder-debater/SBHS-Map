@@ -4,6 +4,6 @@ localStorage.debug = (document.getElementById('debug-elm')[document.getElementBy
 };
 document.getElementById('sw-btn').addEventListener(document.getElementById('sw-evt').value, () => {
   if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.register("sw.js");
   }
 });
