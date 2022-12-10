@@ -1,4 +1,4 @@
-const OFFLINE_CACHE = "offline-v-1";
+const OFFLINE_CACHE = "offline-v-2";
 const DATA_CACHE = "data";
 const FILES = [
   // HTML
@@ -22,22 +22,26 @@ const FILES = [
 ];
 let _log;
 function prettyLog(first, ...args) {
-  args.unshift('[SW] ' + first);
+  args.unshift("[SW] " + first);
   _log(args)
 }
 function log(...args) {
-  args.unshift('[SW]')
+  args.unshift("[SW]")
   _log(args)
 }
 const LOG_CHANNEL = self.BroadcastChannel
-  ? (new BroadcastChannel('sw-logs'))
+  ? (new BroadcastChannel("sw-logs"))
   : null;
 let debugModeVal = null;
 let queue = [];
 if (LOG_CHANNEL) {
   LOG_CHANNEL.onmessage = function(evt) {
+    if (!(["on", "off"].contains(evt.data))) {
+      // Not debug mode value
+      return undefined;
+    }
     debugModeVal = evt.data;
-    let i=-1;
+    let i = -1;
     while (true) {
       i++;
       let q = queue[i];
@@ -59,7 +63,7 @@ if (LOG_CHANNEL) {
       queue.push(args);
     }
   };
-  LOG_CHANNEL.postMessage('sw-ready')
+  LOG_CHANNEL.postMessage("sw-ready")
 }
 else {
   _log = function() {}
