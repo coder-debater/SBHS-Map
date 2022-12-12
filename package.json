@@ -1,0 +1,23 @@
+{
+  "name": "sbhs-map",
+  "version": "1.0.0",
+  "description": "Map for SBHS",
+  "main": "debug.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coder-debater/SBHS-Map.git"
+  },
+  "author": "Wensen Dong",
+  "bugs": {
+    "url": "https://github.com/coder-debater/SBHS-Map/issues"
+  },
+  "homepage": "https://github.com/coder-debater/SBHS-Map#readme",
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
